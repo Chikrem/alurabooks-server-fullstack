@@ -1,9 +1,32 @@
 const { Router } = require("express")
+const { getLivros } = require("../controladores/livro")
 
 const router = Router()
 
-router.get('/', (req, res) => {
-    res.send('Olá mundo da Alura do Brasil!')
+router.get('/', getLivros)
+
+router.post('/', (req, res) => {
+    try {
+        res.send('Você fez uma requisição do tipo POST')
+    } catch (error) {
+        res.status(500).send({ error: "Erro ao processar a requisição POST", details: error.message })
+    }
+})
+
+router.patch('/', (req, res) => {
+    try {
+        res.send('Você fez uma requisição do tipo PATCH')
+    } catch (error) {
+        res.status(500).send({ error: "Erro ao processar a requisição PATCH", details: error.message })
+    }
+})
+
+router.delete('/', (req, res) => {
+    try {
+        res.send('Você fez uma requisição do tipo DELETE')
+    } catch (error) {
+        res.status(500).send({ error: "Erro ao processar a requisição DELETE", details: error.message })
+    }
 })
 
 module.exports = router
