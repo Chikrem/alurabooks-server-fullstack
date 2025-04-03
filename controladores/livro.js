@@ -1,5 +1,5 @@
 const fs = require("fs")
-const { getTodosLivros, getLivrosId, insereLivroNovo } = require("../servicos/livros")
+const { getTodosLivros, getLivrosId, insereLivroNovo, modificaLivro, deletaLivroPorId } = require("../servicos/livros")
 
 function getLivros(req, res) {
     try {
@@ -35,8 +35,29 @@ function postLivro(req, res) {
     }
 }
 
+function patchLivro(req, res) {
+    try {
+        const livros = modificaLivro(req.params.id, req.body);
+        res.status(200).send(livros);
+    } catch (error) {
+        res.status(500).send({ error: error.message });
+    }
+}
+
+function deleteLivro(req, res) {
+    try {
+        const id = parseInt(req.params.id, 10);
+        deletaLivroPorId(id);
+        res.status(200).send({ message: `Livro com ID ${id} foi deletado com sucesso.` });
+    } catch (error) {
+        res.status(500).send({ error: error.message });
+    }
+}
+
 module.exports = {
     getLivros,
     getLivro,
-    postLivro
+    postLivro,
+    patchLivro,
+    deleteLivro
 }

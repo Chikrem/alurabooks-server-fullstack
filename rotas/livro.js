@@ -1,5 +1,5 @@
 const { Router } = require("express")
-const { getLivros, getLivro, postLivro } = require("../controladores/livro")
+const { getLivros, getLivro, postLivro, patchLivro, deleteLivro } = require("../controladores/livro")
 
 const router = Router()
 
@@ -9,20 +9,8 @@ router.get('/:id', getLivro)
 
 router.post('/', postLivro)
 
-router.patch('/', (req, res) => {
-    try {
-        res.send('Você fez uma requisição do tipo PATCH')
-    } catch (error) {
-        res.status(500).send({ error: "Erro ao processar a requisição PATCH", details: error.message })
-    }
-})
+router.patch('/:id', patchLivro)
 
-router.delete('/', (req, res) => {
-    try {
-        res.send('Você fez uma requisição do tipo DELETE')
-    } catch (error) {
-        res.status(500).send({ error: "Erro ao processar a requisição DELETE", details: error.message })
-    }
-})
+router.delete('/:id', deleteLivro)
 
 module.exports = router
