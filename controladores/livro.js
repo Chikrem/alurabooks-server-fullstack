@@ -1,5 +1,5 @@
 const fs = require("fs")
-const { getTodosLivros, getLivrosId, insereLivroNovo, modificaLivro, deletaLivroPorId } = require("../servicos/livros")
+const { getTodosLivros, getLivrosId, modificaLivro, deletaLivroPorId, insereLivroNovo } = require("../servicos/livros")
 
 function getLivros(req, res) {
     try {
@@ -26,7 +26,7 @@ function postLivro(req, res) {
     try {
         const livroNovo = req.body
         if(req.body.nome) {
-            insereLivro(livroNovo)
+            insereLivroNovo(livroNovo)
             res.status(201)
             res.send("Livro inserido com sucesso")
         } else {

@@ -1,15 +1,17 @@
 // Início Aula-2
 
 const express = require("express")
-const rotaLivro = require("./rotas/livro")
 const cors = require("cors")
-
 const app = express()
+
+const rotaLivro = require("./rotas/livro")
+const rotaFavoritos = require("./rotas/favorito")
 
 app.use(express.json())
 app.use(cors({origin: '*'}))
 
 app.use('/livros', rotaLivro)
+app.use('/favoritos', rotaFavoritos)
 
 const port = 8000
 
