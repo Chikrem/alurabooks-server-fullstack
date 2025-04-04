@@ -1,1 +1,34 @@
-[{"id":1,"nome":"Livro irado"},{"id":2,"nome":"Livro muito legal"},{"id":3,"nome":"Livro mucho legaaaaaal"},{"id":4,"nome":"Livro irado menos irado que o outro"}]
+[
+  {
+    "id": 4,
+    "nome": "Entendendo algoritmos"
+  },
+  {
+    "id": 5,
+    "nome": "Cangaceiro Javascript"
+  },
+  {
+    "id": 7,
+    "nome": "Guia básico de C#"
+  },
+  {
+    "id": 8,
+    "nome": "Guia básico de JavaScript"
+  },
+  {
+    "id": 9,
+    "nome": "Código Limpo"
+  },
+  {
+    "id": 3,
+    "nome": "JavaScript para iniciantes"
+  },
+  {
+    "id": 1,
+    "nome": "Conhecendo o python"
+  },
+  {
+    "id": 2,
+    "nome": "Imersão Alura"
+  }
+]
